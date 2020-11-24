@@ -10,7 +10,9 @@
     "noCooldown.EndGatewayMixin",
     "noObsidianPlatform.ServerWorldMixin",
     "noop.MinecraftClientMixin",
-    "noop.MinecraftServerMixin"
+    "noop.MinecraftServerMixin",
+    "noObsidianPlatform.ServerWorldMixin",
+    "keepProjectilesTicked.ServerChunkManagerMixin"
   ],
   "client": [
   ],
