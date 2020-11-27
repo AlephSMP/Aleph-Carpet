@@ -12,20 +12,8 @@ import org.apache.logging.log4j.Logger;
 
 @Mixin(PlayerManager.class)
 public abstract class PlayerManagerMixin{
-
-    @Final
-    @Shadow private static final Logger LOGGER = LogManager.getLogger();
-
-    private boolean llamaDupeCase;
-
-    @Redirect(method = "remove", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;hasVehicle()Z"))
-    private boolean llamaDupeHasVehicle(ServerPlayerEntity serverPlayerEntity){
-        boolean hasVehicle = serverPlayerEntity.hasVehicle();
-        llamaDupeCase = hasVehicle && AlephSimpleSettings.llamaDupeExploit;
-        return hasVehicle;
-    }
     @Redirect(method="remove", at = @At(value="FIELD", target = "Lnet/minecraft/entity/Entity;removed:Z", opcode = Opcodes.PUTFIELD))
     private void replaceRemove(Entity entity, boolean value) {
-        entity.removed = !llamaDupeCase;
+        entity.removed = !AlephSimpleSettings.llamaDupeExploit;
     }
 }
