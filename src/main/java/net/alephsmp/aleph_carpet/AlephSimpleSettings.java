@@ -11,7 +11,7 @@ public class AlephSimpleSettings {
             desc = "Enables old donkey / llmama dupe bug.",
             category = {SURVIVAL,FEATURE, AlephSettingsCategory}
     )
-    public static boolean llamaDupeFeature = false;
+    public static boolean llamaDupeExploit = false;
 
     @Rule(
             desc = "Toggle for end gateway cooldown",

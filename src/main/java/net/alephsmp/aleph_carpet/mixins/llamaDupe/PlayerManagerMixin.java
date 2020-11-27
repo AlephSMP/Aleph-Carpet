@@ -21,7 +21,7 @@ public abstract class PlayerManagerMixin{
     @Redirect(method = "remove", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;hasVehicle()Z"))
     private boolean llamaDupeHasVehicle(ServerPlayerEntity serverPlayerEntity){
         boolean hasVehicle = serverPlayerEntity.hasVehicle();
-        llamaDupeCase = hasVehicle && AlephSimpleSettings.llamaDupeFeature;
+        llamaDupeCase = hasVehicle && AlephSimpleSettings.llamaDupeExploit;
         return hasVehicle;
     }
     @Redirect(method="remove", at = @At(value="FIELD", target = "Lnet/minecraft/entity/Entity;removed:Z", opcode = Opcodes.PUTFIELD))
